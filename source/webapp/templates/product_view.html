@@ -12,7 +12,7 @@
         <a class="nav-link" style="color: cornflowerblue" href="#"><b>Редактировать</b></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" style="color: cornflowerblue" href="#"><b>Удалить</b></a>
+        <a class="nav-link" style="color: cornflowerblue" href="{% url 'delete_product' product.pk %}"><b>Удалить</b></a>
     </li>
 {% endblock %}
 
