@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 from webapp.models import Product
-from webapp.forms import SearchForm
+from webapp.forms import SearchForm, ProductForm
 
 
 def index_view(request):
@@ -36,3 +36,21 @@ def delete_product(request, pk):
         product.delete()
         return redirect("index_view")
 
+
+def create_product(request):
+    if request.method == "GET":
+        form = ProductForm()
+        return render(request, "create_product.html", {'form': form})
+    elif request.method == "POST":
+        form = ProductForm(data=request.POST)
+        if form.is_valid():
+            Product.objects.create(
+                name=form.cleaned_data['name'],
+                description=form.cleaned_data['description'],
+                category=form.cleaned_data['category'],
+                balance=form.cleaned_data['balance'],
+                price=form.cleaned_data['price']
+            )
+            return redirect('index_view')
+        else:
+            return render(request, 'create_product.html', {'form': form})
