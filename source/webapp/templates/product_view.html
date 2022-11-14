@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Details
+{% endblock %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" style="color: cornflowerblue" href="#"><b>Добавить</b></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" style="color: cornflowerblue" href="#"><b>Редактировать</b></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" style="color: cornflowerblue" href="#"><b>Удалить</b></a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <br/><br/>
+    <h3>{{ product.name }}</h3>
+    <div>
+        <h6 style="display: inline-block;">Описание: </h6>
+        <p style="display: inline-block;">{{ product.description }}</p>
+    </div>
+    <div >
+        <h6 style="display: inline-block;">Цена: </h6>
+        <p style="display: inline-block;">{{ product.price }}</p>
+    </div>
+    <div>
+        <h6 style="display: inline-block;">Остаток: </h6>
+        <p style="display: inline-block;">{{ product.balance }}</p>
+    </div>
+    <div>
+        <h6 style="display: inline-block;">Категория: </h6>
+        <p style="display: inline-block;">{{ product.get_category_display }}</p>
+    </div>
+{% endblock %}

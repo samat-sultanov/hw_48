@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" style="color: cornflowerblue" href="#"><b>Добавить</b></a>
+    </li>
+{% endblock %}
+
+{% block title %}
+    All Products
+{% endblock %}
+
+{% block content %}
+    <br/><br/>
+    <div>
+        <form action="" method="get">
+            <input type="text" class="btn btn-outline-primary btn-sm" name="name" placeholder="Название товара">
+            <input type="submit" class="btn btn-info btn-sm" value="Поиск">
+        </form>
+    </div>
+    <br/><br/>
+    {% if products %}
+        <h3>Все Продукты Магазина:</h3>
+        <br/>
+        {% for product in products %}
+            <div class="card"
+                 style="width: 33rem; border-radius: 1em; border-color: cornflowerblue; border-inline-width: 2px">
+                <div class="card-body">
+                    <div style="text-align: left;">
+                        <h6 class="card-title" style="display: inline-block;">{{ product.name }}</h6>
+                        <a style="float: right;"
+                           href="{% url 'product_view' product.pk %}"><i class="bi bi-zoom-in"></i></a>
+                    </div>
+                    <p class="card-text">Цена товара: {{ product.price }}</p>
+                    <p class="card-text">Категория товара: {{ product.get_category_display }}</p>
+                </div>
+            </div>
+            <br/>
+        {% endfor %}
+    {% else %}
+        <br/>
+        <h3 style="color: red; text-align: center">Товар с таким наименованием отсутствует !!!</h3>
+    {% endif %}
+{% endblock %}
