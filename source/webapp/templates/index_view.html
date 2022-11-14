@@ -2,7 +2,7 @@
 
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" style="color: cornflowerblue" href="{% url 'create_product' %}"><b>Добавить</b></a>
+        <a class="nav-link" style="color: #5bc0de" href="{% url 'create_product' %}"><b>Добавить</b></a>
     </li>
 {% endblock %}
 
@@ -14,7 +14,8 @@
     <br/><br/>
     <div>
         <form action="" method="get">
-            <input type="text" class="btn btn-outline-primary btn-sm" name="name" placeholder="Название товара">
+            <input type="text" class="btn btn-outline-primary btn-sm" style="border-color: #5bc0de" name="name"
+                   placeholder="Название товара">
             <input type="submit" class="btn btn-info btn-sm" value="Поиск">
         </form>
     </div>
@@ -23,12 +24,12 @@
         <h3>Все Продукты Магазина:</h3>
         <br/>
         {% for product in products %}
-            <div class="card"
-                 style="width: 33rem; border-radius: 1em; border-color: cornflowerblue; border-inline-width: 2px">
+            <div class="card, shadow p-2 mb-3 bg-body rounded"
+                 style="width: 33rem; border-radius: 1em; border-inline-width: 2px">
                 <div class="card-body">
                     <div style="text-align: left;">
                         <h6 class="card-title" style="display: inline-block;">{{ product.name }}</h6>
-                        <a style="float: right;"
+                        <a style="float: right; color: #5bc0de"
                            href="{% url 'product_view' product.pk %}"><i class="bi bi-zoom-in"></i></a>
                     </div>
                     <p class="card-text">Цена товара: {{ product.price }}</p>

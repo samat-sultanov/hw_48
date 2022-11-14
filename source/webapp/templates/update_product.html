@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Update Product
+{% endblock %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" style="color: #5bc0de" href="{% url 'create_product' %}"><b>Добавить</b></a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <br/><br/>
+    <h3>Редактировать данные Товара:</h3>
+    <br/>
+    <form action="" method="post">
+        {% include 'partial/form.html' with button_text='Сохранить' %}
+    </form>
+
+{% endblock %}

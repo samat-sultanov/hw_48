@@ -6,13 +6,13 @@
 
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" style="color: cornflowerblue" href="{% url 'create_product' %}"><b>Добавить</b></a>
+        <a class="nav-link" style="color: #5bc0de" href="{% url 'create_product' %}"><b>Добавить</b></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" style="color: cornflowerblue" href="#"><b>Редактировать</b></a>
+        <a class="nav-link" style="color: #5bc0de" href="{% url 'update_product' product.pk %}"><b>Редактировать</b></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" style="color: cornflowerblue" href="{% url 'delete_product' product.pk %}"><b>Удалить</b></a>
+        <a class="nav-link" style="color: #5bc0de" href="{% url 'delete_product' product.pk %}"><b>Удалить</b></a>
     </li>
 {% endblock %}
 
